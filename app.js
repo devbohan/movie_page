@@ -7,6 +7,9 @@ const app = express()
 const dbname = config.parsed.MongoDBName
 const dbaccount = config.parsed.MongoDBAccountName
 const dbsecret = config.parsed.MongoDBAccountSecret
+const cors = require('cors')
+
+app.use(cors())
 //test is database name
 mongoose.connect(`mongodb+srv://${dbaccount}:${dbsecret}@cluster0.gtgxruw.mongodb.net/${dbname}?retryWrites=true&w=majority`)
 mongoose.connection.once('open', () => {
